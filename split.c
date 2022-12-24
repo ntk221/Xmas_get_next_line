@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 18:42:41 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/24 18:56:18 by kazuki           ###   ########.fr       */
+/*   Created: 2022/12/24 18:58:28 by kazuki            #+#    #+#             */
+/*   Updated: 2022/12/24 19:03:16 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ char **split(char *string, char separater)
             command_num++;
         position++;
     }
+    retur
     command_num = ((command_num + 1) / 2) + 1;
     command_all = (char **)malloc(sizeof(char *) * command_num);
     position = 0;
@@ -62,28 +63,11 @@ char **split(char *string, char separater)
     return (command_all);
 }
 
-void command_separate(char *command)
+int main()
 {
+    char *command = "cat etc";
+    char separator = ' ';
     char **command_all;
 
-    command_all = split(command, ' ');
-    //cat test.txt => cat / test.txt
-}
-
-int main(void)
-{
-    char *command;
-    int     flag;
-
-    command = (char *)malloc(sizeof(char) * 100);
-    while(1)
-    {
-        write(STDOUT_FILENO, "-->", 4);
-        flag = read(STDIN_FILENO, command, 100);
-        printf("%s\n", command);
-        bzero((void *)command, 100);
-        if (flag == -1)
-            exit (1);
-    }
-    return (0);
+    command_all = split(command, separator);
 }

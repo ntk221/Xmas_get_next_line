@@ -14,7 +14,8 @@
 # include <stdio.h>
 # include <stddef.h>
 
+/* util functions */
 int ft_atoi(const char *str);
-
+char **split(char *string, char separater);
 
 #endif

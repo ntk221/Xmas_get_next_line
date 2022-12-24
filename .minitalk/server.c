@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include "../include/minishell.h"
+#include <stdio.h>
 
 //minitalk的に、サーバーを二つ立てる（受け取り側、送信側）
 //送信側が言葉を送信する
@@ -20,13 +20,13 @@ void	recomponent(int signal)
 	g_char.bitcounter++;
 }
 
-int main()
+int	main(void)
 {
-    printf("%s\n", "this project is started!");
-    printf("%s\n", "------------------------");
-    //-------------------------------------//
+	printf("%s\n", "this project is started!");
+	printf("%s\n", "------------------------");
+	//-------------------------------------//
 
-    signal(SIGUSR1, recomponent);
+	signal(SIGUSR1, recomponent);
 	signal(SIGUSR2, recomponent);
 	g_char.bitcounter = 0;
 	g_char.last_ch = '\0';
