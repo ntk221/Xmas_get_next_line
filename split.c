@@ -6,7 +6,7 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 18:58:28 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/24 20:41:28 by satushi          ###   ########.fr       */
+/*   Updated: 2022/12/24 22:30:16 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,30 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
+#include <assert.h>
 
 char **split(char *string, char separater)
 {
     size_t  position;
     size_t  command_num;
     char    **command_all;
-    size_t  each_command_num;
+    int	    each_command_num;
     int     command_position;
     int     i;
 
     position = 0;
     command_num = 0;
+	while (string[position] == ' ')
+		position++;
     while (string[position] != '\0')
     {
         if (position != 0 && string[position - 1] == ' ' && string[position] != ' ')
             command_num++;
-        else if (position != 0 && string[position - 1] != ' ' && string[position] == ' ')
-            command_num++;
         position++;
     }
-    command_num = ((command_num + 1) / 2) + 1;
+    command_num = command_num + 1;
     command_all = (char **)malloc(sizeof(char *) * (command_num + 1));
+	printf("each command num is %ld\n", command_num);
     position = 0;
     each_command_num = 0;
 	command_position = 0;
@@ -43,16 +45,18 @@ char **split(char *string, char separater)
     {
         while (string[position] == ' ')
             position++;
-        while (string[position] != ' ')
+        while (string[position] != ' ' && string[position] != '\0')
         {
             position++;
             each_command_num++;
         }
         position = position - each_command_num;
         command_all[command_position] = (char *)malloc(sizeof(char) * (each_command_num + 1));
-        while (string[position] != ' ')
+		printf("each command num is %d\n", each_command_num);
+        while (string[position] != ' ' && string[position] != '\0')
         {
             command_all[command_position][i] = string[position];
+			printf("%c\n", string[position]);
             position++;
             i++;
         }
@@ -62,10 +66,13 @@ char **split(char *string, char separater)
 		each_command_num = 0;
     }
     command_all[command_num] = NULL;
+	printf("%s\n", command_all[0]);
+    // assert(command_all[1][2] == '\n');
+	printf("%s\n", command_all[1]);
     return (command_all);
 }
 
-void	test_split(void)
+/*void	test_split(void)
 {
 	char	*test1;
 	char	**res1;
@@ -100,11 +107,11 @@ void	test_split(void)
 	{
 		printf("%s \n", res4[i]);
 	}
-}
+}*/
 
-int	main(void)
-{
-	test_split();
-    // test_len();
-	return (0);
-}
+// int	main(void)
+// {
+// 	test_split();
+//     // test_len();
+// 	return (0);
+// }
