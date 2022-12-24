@@ -6,7 +6,7 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 18:58:28 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/24 20:28:14 by satushi          ###   ########.fr       */
+/*   Updated: 2022/12/24 20:41:28 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,32 +64,6 @@ char **split(char *string, char separater)
     command_all[command_num] = NULL;
     return (command_all);
 }
-
-// int main()
-// {
-//     char *command = " cat     etc     or     ";
-// 	char *command_1 = "h u l l";
-//     char separator = ' ';
-//     char **command_all;
-// 	char **command_all_1;
-// 	int i;
-
-// 	i = 0;
-//     command_all = split(command, separator);
-// 	while (i != 3)
-// 	{
-// 		//write(1, command_all[i], strlen(command_all[i]));
-// 		printf("%s", command_all[i]);
-// 		i++;
-// 	}
-// 	command_all_1 = split(command_1, separator);
-// 	i = 0;
-// 	while (i != 4)
-// 	{
-// 		printf("%s", command_all_1[i]);
-// 		i++;
-// 	}
-// }
 
 void	test_split(void)
 {
