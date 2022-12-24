@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
+/*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 18:58:28 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/24 20:01:29 by satushi          ###   ########.fr       */
+/*   Updated: 2022/12/24 20:10:46 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ char **split(char *string, char separater)
     size_t  each_command_num;
     int     command_position;
     int     i;
+
+    printf("%s\n", string);
 
     position = 0;
     command_num = 0;
@@ -65,9 +67,9 @@ char **split(char *string, char separater)
     return (command_all);
 }
 
-int main()
+/*int main()
 {
-    char *command = " cat     etc     or     ";
+    char *command = " hoge huga";
     char separator = ' ';
     char **command_all;
 	int i;
@@ -79,4 +81,4 @@ int main()
 		printf("%s\n", command_all[i]);
 		i++;
 	}
-}
+}*/

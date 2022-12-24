@@ -6,7 +6,7 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 18:42:36 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/24 19:29:17 by kazuki           ###   ########.fr       */
+/*   Updated: 2022/12/24 20:12:17 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,25 +45,25 @@ void	test_split(void)
 	char	*test4;
 	char	**res4;
 
-	test1 = "hoge huga";
+	/*test1 = "hoge huga";
 	res1 = split(test1, ' ');
-	/*for (int i = 0; i < 2; i++)
-	{
-		printf("%s \n", res1[i]);
-	}
-	test2 = " hoge huga";
-	res2 = split(test2, ' ');
 	for (int i = 0; i < 2; i++)
 	{
+		printf("%s \n", res1[i]);
+	}*/
+	//test2 = " hoge huga"; 
+	//res2 = split(test2, ' '); // test2 を受け取れていない ....
+	/*for (int i = 0; i < 2; i++)
+	{
 		printf("%s \n", res2[i]);
-	}
+	}*/
 	test3 = "     h       u         ";
 	res3 = split(test3, ' ');
 	for (int i = 0; i < 2; i++)
 	{
 		printf("%s \n", res3[i]);
 	}
-	test4 = "";
+	/*test4 = "";
 	res4 = split(test4, ' ');
 	for (int i = 0; i < 0; i++)
 	{
