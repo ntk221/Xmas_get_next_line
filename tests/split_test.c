@@ -6,7 +6,11 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 18:42:36 by kazuki            #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2022/12/24 22:27:58 by satushi          ###   ########.fr       */
+=======
+/*   Updated: 2022/12/24 20:25:43 by kazuki           ###   ########.fr       */
+>>>>>>> 23f6c3874bd8c784b3dbe876464db8130556dd87
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,25 +57,26 @@ void    test_len(void)
 	res1 = split(test1, ' ');
 	for (int i = 0; i < 2; i++)
 	{
-		printf("%s \n", res1[i]);
+		write(1, res1[i], strlen(res1[i]));
 	}
-	test2 = " hoge huga";
-	res2 = split(test2, ' ');
+	test2 = " hoge huga"; 
+	res2 = split(test2, ' '); // test2 を受け取れていない ....
 	for (int i = 0; i < 2; i++)
 	{
-		printf("%s \n", res2[i]);
+		write(1, res2[i], strlen(res2[i]));
 	}
-	test3 = "     h       u         ";
+	/*test3 = "     h       u         ";
 	res3 = split(test3, ' ');
 	for (int i = 0; i < 2; i++)
 	{
 		printf("%s \n", res3[i]);
-	}
-	test4 = "";
+	}*/
+	/*test4 = "";
 	res4 = split(test4, ' ');
 	for (int i = 0; i < 0; i++)
 	{
 		printf("%s \n", res4[i]);
+<<<<<<< HEAD
 	}
 	test5 = "             ";
 	res5 = split(test5, ' ');
@@ -117,6 +122,9 @@ char	**string_to_split(char *string, int command_num)
     }
 	command_all[command_num] = NULL;
 	return (command_all);
+=======
+	} */
+>>>>>>> 23f6c3874bd8c784b3dbe876464db8130556dd87
 }
 
 void	test_string_to_split(void)
