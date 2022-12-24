@@ -6,7 +6,7 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 18:42:41 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/24 18:56:18 by kazuki           ###   ########.fr       */
+/*   Updated: 2022/12/24 19:30:23 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,53 +14,6 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
-
-char **split(char *string, char separater)
-{
-    size_t  position;
-    size_t  command_num;
-    char    **command_all;
-    size_t  each_command_num;
-    int     command_position;
-    int     i;
-
-    position = 0;
-    command_num = 0;
-    while (string[position] != '\0')
-    {
-        if (position != 0 && string[position - 1] == ' ' && string[position] != ' ')
-            command_num++;
-        else if (position != 0 && string[position - 1] != ' ' && string[position] == ' ')
-            command_num++;
-        position++;
-    }
-    command_num = ((command_num + 1) / 2) + 1;
-    command_all = (char **)malloc(sizeof(char *) * command_num);
-    position = 0;
-    each_command_num = 0;
-    while (position != command_num)
-    {
-        while (string[position] == ' ')
-            position++;
-        while (string[position] != ' ')
-        {
-            position++;
-            each_command_num++;
-        }
-        position = position - each_command_num;
-        command_all[command_position] = (char *)malloc(sizeof(char) * (each_command_num + 1));
-        while (string[position] != ' ')
-        {
-            command_all[command_position][i] = string[position];
-            position++;
-            i++;
-        }
-        i = 0;
-        command_position++;
-    }
-    command_all[command_num] = NULL;
-    return (command_all);
-}
 
 void command_separate(char *command)
 {
@@ -80,6 +33,7 @@ int main(void)
     {
         write(STDOUT_FILENO, "-->", 4);
         flag = read(STDIN_FILENO, command, 100);
+        // separated = command_separate(command);
         printf("%s\n", command);
         bzero((void *)command, 100);
         if (flag == -1)
