@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "minishell.h"
+#include "../include/minishell.h"
 
 //minitalk的に、サーバーを二つ立てる（受け取り側、送信側）
 //送信側が言葉を送信する

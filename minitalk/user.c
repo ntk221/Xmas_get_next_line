@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "../include/minishell.h"
 
 // char *command_separator(int command_num, char **command)
 // {
