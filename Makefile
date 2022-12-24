@@ -1,10 +1,14 @@
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
 
+TESTS = ./tests/*
+
 all:
 	$(CC) $(FLAGS) main.c -o minishell
 
 rm:
 	rm minishell
 
-PHONY: all clean
+test: $(TESTS)
+
+PHONY: all clean test
