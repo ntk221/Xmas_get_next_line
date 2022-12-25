@@ -6,7 +6,7 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 19:36:13 by satushi           #+#    #+#             */
-/*   Updated: 2022/12/25 19:44:37 by satushi          ###   ########.fr       */
+/*   Updated: 2022/12/25 20:05:52 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <signal.h>
 # include <sys/types.h>
 # include <stddef.h>
+# include <stdbool.h>
 
 /* util functions */
 int ft_atoi(const char *str);
