@@ -13,14 +13,10 @@
 #include <readline/readline.h>
 #include <readline/history.h>
 
-size_t spliter(char *string, char separater)
+static size_t spliter(char *string)
 {
     size_t  position;
     size_t  command_num;
-    char    **command_all;
-    int	    each_command_num;
-    int     command_position;
-    int     i;
 
     position = 0;
     command_num = 0;
@@ -36,7 +32,7 @@ size_t spliter(char *string, char separater)
 }
 //command num is ok
 
-size_t obtain_commandlen(char *commanda_all, int position)
+static size_t obtain_commandlen(char *commanda_all, int position)
 {
 	size_t command_len;
 	
@@ -50,19 +46,19 @@ size_t obtain_commandlen(char *commanda_all, int position)
 }
 //obtain_commandlen is ok
 
-char **split(char *split_sub, char separater)
+char **split(char *split_sub)
 {
 	size_t command_num;
 	char **input;
 	size_t command_len;
 	int position;
 	int j;
-	int k;
+	size_t k;
 
 	position = 0;
 	j = 0;
 	k = 0;
-	command_num = spliter(split_sub, separater);
+	command_num = spliter(split_sub);
 	input = (char **)malloc(sizeof(char *) * (command_num + 1));
 	while (split_sub[position] != '\0')
 	{
@@ -83,61 +79,3 @@ char **split(char *split_sub, char separater)
 	input[j] = NULL;
 	return input;
 }
-
-// void relative_echo(char *sub)
-// {
-// 	char *echo_string;
-// 	int position;
-
-// 	echo_string = "echo";
-// 	position = 0;
-// 	if (strlen(sub) != 4)
-// 	{
-// 		printf("false1\n");
-// 		return ;
-// 	}
-// 	while (sub[position] != '\0')
-// 	{
-// 		printf("%c\n", sub[position]);
-// 		if (sub[position] != echo_string[position])
-// 		{
-// 			printf("false2\n");
-// 			return;
-// 		}
-// 		position++;
-// 	}
-// 	printf("true\n");
-// }
-
-// int main()
-// {
-// 	char	*command;
-// 	char	**separated;
-// 	int i = 0;
-
-// 	while(1)
-//     {
-//         command = readline("--> ");
-// 		printf("command is %ld\n", strlen(command));
-//         separated = split(command, ' ');
-// 		while (separated[i] != NULL)
-// 		{
-// 			printf("i is %d\n", i);
-// 			printf("%s\n", separated[i]);
-// 			relative_echo(separated[i]);
-// 			i++;
-// 		}
-// 		i = 0;
-//     }
-
-// 	// command = "ddd ddd ddd";
-// 	// separated = split(command, ' ');
-
-// 	// while (separated[i] != NULL)
-// 	// {
-// 	// 	printf("%s\n", separated[i]);
-// 	// 	i++;
-// 	// }
-
-//     return (0);
-// }

@@ -6,18 +6,20 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 18:44:00 by satushi           #+#    #+#             */
-/*   Updated: 2022/12/25 20:18:56 by satushi          ###   ########.fr       */
+/*   Updated: 2022/12/25 21:23:54 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/minishell.h"
+#include "../../include/minishell.h"
 
 void echo_branch(char **inputstring_arrange, int *arrange_position)
 {
 	int echo_arg_l;
+	char *nullstring;
 
 	echo_arg_l = 0;
-	if (inputstring_arrange[(*arrange_position) + 1] == "(null)")
+	nullstring = "(null)";
+	if (inputstring_arrange[(*arrange_position) + 1] == nullstring)
 		ft_echo_withno_newline();
 	else
 	{
