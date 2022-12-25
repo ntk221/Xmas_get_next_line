@@ -37,46 +37,46 @@ char **split(char *string, char separater)
     }
     command_num = command_num + 1;
     command_all = (char **)malloc(sizeof(char *) * (command_num + 1));
-	//printf("each command num is %ld\n", command_num);
-    position = 0;
-    each_command_num = 0;
-	command_position = 0;
-    while (command_position != command_num)
-    {
-        while (string[position] == ' ')
-            position++;
-        while (string[position] != ' ' && string[position] != '\0')
-        {
-            position++;
-            each_command_num++;
-        }
-		printf("each command num is %d\n", each_command_num);
-		printf("position is %ld\n", position);
-        position = position - each_command_num;
-		printf("position is %ld\n", position);
-        command_all[command_position] = (char *)malloc(sizeof(char) * (each_command_num + 1));
-        while (string[position] != ' ' && string[position] != '\0')
-        {
-            command_all[command_position][i] = string[position];
-			printf("%c\n", string[position]);
-            position++;
-            i++;
-        }
-		printf("position is %ld\n", position);
-		printf("^^^^^^^^^^^^^^^^^^^^^^^^^^\n");
-		command_all[command_position][i] = '\0';
-        i = 0;
-        command_position++;
-		each_command_num = 0;
-    }
-    command_all[command_num] = NULL;
-	printf("%c\n", command_all[0][0]);
-    // assert(command_all[1][2] == '\n');
-	printf("%s\n", command_all[1]);
-    return (command_all);
+
+    // position = 0;
+    // each_command_num = 0;
+	// command_position = 0;
+    // while (command_position != command_num)
+    // {
+    //     while (string[position] == ' ')
+    //         position++;
+    //     while (string[position] != ' ' && string[position] != '\0')
+    //     {
+    //         position++;
+    //         each_command_num++;
+    //     }
+	// 	printf("each command num is %d\n", each_command_num);
+	// 	printf("position is %ld\n", position);
+    //     position = position - each_command_num;
+	// 	printf("position is %ld\n", position);
+    //     command_all[command_position] = (char *)malloc(sizeof(char) * (each_command_num + 1));
+    //     while (string[position] != ' ' && string[position] != '\0')
+    //     {
+    //         command_all[command_position][i] = string[position];
+	// 		printf("%c\n", string[position]);
+    //         position++;
+    //         i++;
+    //     }
+	// 	printf("position is %ld\n", position);
+	// 	printf("^^^^^^^^^^^^^^^^^^^^^^^^^^\n");
+	// 	command_all[command_position][i] = '\0';
+    //     i = 0;
+    //     command_position++;
+	// 	each_command_num = 0;
+    // }
+    // command_all[command_num] = NULL;
+	// printf("%c\n", command_all[0][0]);
+    // // assert(command_all[1][2] == '\n');
+	// printf("%s\n", command_all[1]);
+    // return (command_all);
 }
 
-/*void	test_split(void)
+void	test_split(void)
 {
 	char	*test1;
 	char	**res1;
@@ -111,11 +111,11 @@ char **split(char *string, char separater)
 	{
 		printf("%s \n", res4[i]);
 	}
-}*/
+}
 
-// int	main(void)
-// {
-// 	test_split();
-//     // test_len();
-// 	return (0);
-// }
+int	main(void)
+{
+	test_split();
+    // test_len();
+	return (0);
+}
