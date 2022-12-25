@@ -6,7 +6,7 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 18:44:00 by satushi           #+#    #+#             */
-/*   Updated: 2022/12/25 19:53:39 by satushi          ###   ########.fr       */
+/*   Updated: 2022/12/25 20:18:56 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void echo_branch(char **inputstring_arrange, int *arrange_position)
 	int echo_arg_l;
 
 	echo_arg_l = 0;
-	if (inputstring_arrange[(*arrange_position) + 1] == NULL)
+	if (inputstring_arrange[(*arrange_position) + 1] == "(null)")
 		ft_echo_withno_newline();
 	else
 	{

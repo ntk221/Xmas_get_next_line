@@ -69,7 +69,6 @@ char **split(char *split_sub, char separater)
 		while(split_sub[position] == ' ' && split_sub[position] != '\0')
 			position++;
 		command_len = obtain_commandlen(split_sub, position);
-		printf("%ld\n", command_len);
 		input[j] = (char *)malloc(sizeof(char) * (command_len + 1));
 		while (command_len != k)
 		{

@@ -6,7 +6,7 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 18:42:41 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/25 19:25:30 by satushi          ###   ########.fr       */
+/*   Updated: 2022/12/25 20:01:08 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int main()
 			// printf("i is %d\n", i); //削除予定　デバック用だったため
 			// printf("%s\n", separated[i]); //削除予定　でバック用だったため
 			//relative_echo(separated[i]); //echo以外も確認できるようにobtain_commandinfoに移管
-			// obtain_commandinfo(separated[inputstring_position], &inputstring_position, inputed_string_separetednum);
+			obtain_commandinfo(separated, &inputstring_position, inputed_string_separetednum);
 		}
 		inputstring_position = 0;
     }
