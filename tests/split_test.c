@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split_test.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
+/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 18:42:36 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/25 17:42:09 by kazuki           ###   ########.fr       */
+/*   Updated: 2022/12/25 20:53:03 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <string.h>
 #include "../include/minishell.h"
 
-/*void	test_split(void)
+void	test_split(void)
 {
 	char	*test1;
 	char	**res1;
@@ -61,10 +61,10 @@
 	{
 		printf("%s \n", res6[0]);
 	}
-}*/
+}
 
 int	main(void)
 {
-	// test_split();
+	test_split();
 	return (0);
 }

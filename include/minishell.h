@@ -6,7 +6,7 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 19:36:13 by satushi           #+#    #+#             */
-/*   Updated: 2022/12/25 20:05:52 by satushi          ###   ########.fr       */
+/*   Updated: 2022/12/25 21:21:38 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@
 
 /* util functions */
 int ft_atoi(const char *str);
-char **split(char *string, char separater);
 
 /*echo's output function*/
 void	ft_echo(char **sub, int arg_f, int arg_l);
@@ -35,7 +34,7 @@ void	ft_echo_withno_newline(void);
 
 /*command swaitch'd*/
 int		catch_echoargnum(char **inputstring_arrange, int arrange_position);
-void	obtain_commandinfo(char **input_string_all, int *inputstringposition, int separatednum);
+void	obtain_commandinfo(char **input_string_all, int *inputstringposition);
 void	echo_branch(char **inputstring_arrange, int *arrange_position);
 
 /*split*/

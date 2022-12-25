@@ -6,11 +6,11 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 18:11:01 by satushi           #+#    #+#             */
-/*   Updated: 2022/12/25 20:18:33 by satushi          ###   ########.fr       */
+/*   Updated: 2022/12/25 21:24:18 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../include/minishell.h"
+# include "../../include/minishell.h"
 
 void ft_echo(char **sub, int arg_f, int arg_l)
 {
