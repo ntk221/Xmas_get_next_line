@@ -85,60 +85,60 @@ char **split(char *split_sub, char separater)
 	return input;
 }
 
-void relative_echo(char *sub)
-{
-	char *echo_string;
-	int position;
+// void relative_echo(char *sub)
+// {
+// 	char *echo_string;
+// 	int position;
 
-	echo_string = "echo";
-	position = 0;
-	if (strlen(sub) != 4)
-	{
-		printf("false1\n");
-		return ;
-	}
-	while (sub[position] != '\0')
-	{
-		printf("%c\n", sub[position]);
-		if (sub[position] != echo_string[position])
-		{
-			printf("false2\n");
-			return;
-		}
-		position++;
-	}
-	printf("true\n");
-}
+// 	echo_string = "echo";
+// 	position = 0;
+// 	if (strlen(sub) != 4)
+// 	{
+// 		printf("false1\n");
+// 		return ;
+// 	}
+// 	while (sub[position] != '\0')
+// 	{
+// 		printf("%c\n", sub[position]);
+// 		if (sub[position] != echo_string[position])
+// 		{
+// 			printf("false2\n");
+// 			return;
+// 		}
+// 		position++;
+// 	}
+// 	printf("true\n");
+// }
 
-int main()
-{
-	char	*command;
-	char	**separated;
-	int i = 0;
+// int main()
+// {
+// 	char	*command;
+// 	char	**separated;
+// 	int i = 0;
 
-	while(1)
-    {
-        command = readline("--> ");
-		printf("command is %ld\n", strlen(command));
-        separated = split(command, ' ');
-		while (separated[i] != NULL)
-		{
-			printf("i is %d\n", i);
-			printf("%s\n", separated[i]);
-			relative_echo(separated[i]);
-			i++;
-		}
-		i = 0;
-    }
+// 	while(1)
+//     {
+//         command = readline("--> ");
+// 		printf("command is %ld\n", strlen(command));
+//         separated = split(command, ' ');
+// 		while (separated[i] != NULL)
+// 		{
+// 			printf("i is %d\n", i);
+// 			printf("%s\n", separated[i]);
+// 			relative_echo(separated[i]);
+// 			i++;
+// 		}
+// 		i = 0;
+//     }
 
-	// command = "ddd ddd ddd";
-	// separated = split(command, ' ');
+// 	// command = "ddd ddd ddd";
+// 	// separated = split(command, ' ');
 
-	// while (separated[i] != NULL)
-	// {
-	// 	printf("%s\n", separated[i]);
-	// 	i++;
-	// }
+// 	// while (separated[i] != NULL)
+// 	// {
+// 	// 	printf("%s\n", separated[i]);
+// 	// 	i++;
+// 	// }
 
-    return (0);
-}
+//     return (0);
+// }
