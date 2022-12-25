@@ -6,7 +6,7 @@
 /*   By: kazuki <kazuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 09:35:12 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/24 17:48:55 by kazuki           ###   ########.fr       */
+/*   Updated: 2022/12/24 18:43:55 by kazuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	is_space(const char c)
 	return (0);
 }
 
-static bool is_digits(const char c)
+static bool	is_digits(const char c)
 {
     return (c >= '0' && c <= '9');
 }
@@ -54,4 +54,3 @@ int	ft_atoi(const char *str)
 	}
 	return (num);
 }
-

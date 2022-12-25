@@ -9,6 +9,9 @@ all:
 rm:
 	rm minishell
 
+norm:
+	norminette
+
 test: $(TESTS)
 
 PHONY: all clean test
