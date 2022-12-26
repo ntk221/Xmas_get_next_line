@@ -6,7 +6,7 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 18:42:41 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/25 21:24:30 by satushi          ###   ########.fr       */
+/*   Updated: 2022/12/26 11:04:58 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int main()
 			inputed_string_separetednum++;
 		while (separated[inputstring_position] != NULL)
 		{
-			obtain_commandinfo(separated, &inputstring_position);
+			obtain_commandinfo(separated, &inputstring_position, inputed_string_separetednum);
 		}
 		inputstring_position = 0;
     }
