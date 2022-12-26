@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  test:
 
     runs-on: ubuntu-latest
 
@@ -19,5 +19,8 @@ jobs:
         sudo apt update
         sudo apt install -y libreadline-dev
 
-    - name: Run
+    - name: Build
       run: make
+
+    - name: Test run
+      run: make split_test
