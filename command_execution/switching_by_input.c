@@ -6,7 +6,7 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 18:44:06 by satushi           #+#    #+#             */
-/*   Updated: 2022/12/25 21:21:26 by satushi          ###   ########.fr       */
+/*   Updated: 2022/12/26 11:05:47 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,11 @@ bool echo_or_not(char *sub)
 	return (true);
 }
 
-void obtain_commandinfo(char **input_string_all, int *inputstringposition)//, int separatednum
+void obtain_commandinfo(char **input_string_all, int *inputstringposition, int input_all)//, int separatednum
 {
 	if (true == echo_or_not(input_string_all[*inputstringposition]))
-		echo_branch(input_string_all, inputstringposition); // echo の 引数の有無を判定して処理に回す
+		ft_echo(input_string_all, inputstringposition); // echo の 引数の有無を判定して処理に回す
+	else
+		*inputstringposition = *inputstringposition + input_all;
 	return ;
 }

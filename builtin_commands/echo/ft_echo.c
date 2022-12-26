@@ -6,13 +6,13 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 18:11:01 by satushi           #+#    #+#             */
-/*   Updated: 2022/12/25 21:24:18 by satushi          ###   ########.fr       */
+/*   Updated: 2022/12/26 11:04:25 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../../include/minishell.h"
 
-void ft_echo(char **sub, int arg_f, int arg_l)
+void ft_echo_with_newline(char **sub, int arg_f, int arg_l)
 {
 	size_t	echoed_strlen;
 	char	space;
@@ -31,10 +31,27 @@ void ft_echo(char **sub, int arg_f, int arg_l)
 	write(1, &newline, 1);
 }
 
-void ft_echo_withno_newline(void)
+void ft_echo_no_newline(void)
 {
 	char newline;
 
 	newline = '\n';
 	write(1, &newline, 1);
+}
+
+void ft_echo(char **inputstring_arrange, int *arrange_position)
+{
+	int echo_arg_l;
+	char *nullstring;
+
+	echo_arg_l = 0;
+	nullstring = "(null)";
+	if (inputstring_arrange[(*arrange_position) + 1] == nullstring)
+		ft_echo_no_newline();
+	else
+	{
+		echo_arg_l = catch_echoargnum(inputstring_arrange, (*arrange_position) + 1);
+		ft_echo_with_newline(inputstring_arrange, *arrange_position + 1, echo_arg_l);
+		*arrange_position = *arrange_position + echo_arg_l;
+	}
 }
