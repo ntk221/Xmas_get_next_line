@@ -6,11 +6,13 @@ SPLIT 	= ./split/split.c
 COM	  	= ./command_execution/*
 BUILTIN = ./builtin_commands/echo/*
 
-all:
-	$(CC) $(FLAGS) $(SPLIT) $(COM) $(BUILTIN) main.c -lreadline -o minishell
+TARGET  = minishell
+
+$(TARGET):
+	$(CC) $(FLAGS) $(SPLIT) $(COM) $(BUILTIN) main.c -lreadline -o $(TARGET)
 
 rm:
-	rm minishell
+	rm $(TARGET)
 
 norm:
 	norminette
