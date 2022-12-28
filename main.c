@@ -20,12 +20,12 @@ void shell_loop()
 	int		tok_pos;
 	
 	delim_num = 0;
-	tok_pos = 0;
 	
 	while(1)
     {
+		tok_pos = 0;
         command_line = readline("--> ");
-        tok_seq = split(command_line, ' ');
+        tok_seq = split(command_line);
 		while (tok_seq[delim_num] != NULL)
 			delim_num++;
 		while (tok_seq[tok_pos] != NULL)
@@ -39,17 +39,5 @@ void shell_loop()
 int main()
 {
 	shell_loop();
-	// while(1)
-    // {
-    //     command = readline("--> ");
-    //     separated = split(command, ' ');
-	// 	while (separated[inputed_string_separetednum] != NULL)
-	// 		inputed_string_separetednum++;
-	// 	while (separated[inputstring_position] != NULL)
-	// 	{
-	// 		obtain_commandinfo(separated, &inputstring_position, inputed_string_separetednum);
-	// 	}
-	// 	inputstring_position = 0;
-    // }
     return (0);
 }

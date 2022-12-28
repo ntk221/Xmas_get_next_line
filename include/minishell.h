@@ -38,6 +38,6 @@ int		catch_echoargnum(char **inputstring_arrange, int arrange_position);
 void	execute(char **input_string_all, int *inputstringposition, int input_all);
 
 /*split*/
-char	**split(char *split_sub, char separater);
+char	**split(char *split_sub);
 
 #endif

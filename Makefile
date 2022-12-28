@@ -3,13 +3,13 @@ FLAGS = -Wall -Wextra -Werror
 
 TESTS 	= ./tests/*
 SPLIT 	= ./split/split.c
-COM	  	= ./command_execution/*
+EXE	  	= ./executer/*
 BUILTIN = ./builtin_commands/echo/*
 
 TARGET  = minishell
 
 $(TARGET):
-	$(CC) $(FLAGS) $(SPLIT) $(COM) $(BUILTIN) main.c -lreadline -o $(TARGET)
+	$(CC) $(FLAGS) $(SPLIT) $(EXE) $(BUILTIN) main.c -lreadline -o $(TARGET)
 
 rm:
 	rm $(TARGET)

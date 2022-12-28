@@ -13,63 +13,63 @@
 #include <readline/readline.h>
 #include <readline/history.h>
 
-static size_t spliter(char *string)
+static size_t get_commands_num(char *str)
 {
-    size_t  position;
-    size_t  command_num;
+    size_t  pos;
+    size_t  commands_num;
 
-    position = 0;
-    command_num = 0;
-	while (string[position] == ' ' && string[position] != '\0')
-		position++;
-    while (string[position] != '\0')
+    pos = 0;
+    commands_num = 0;
+	while (str[pos] == ' ' && str[pos] != '\0')
+		pos++;
+    while (str[pos] != '\0')
     {
-        if (position != 0 && string[position - 1] == ' ' && string[position] != ' ')
-            command_num++;
-        position++;
+        if (pos != 0 && str[pos - 1] == ' ' && str[pos] != ' ')
+            commands_num++;
+        pos++;
     }
-    return (command_num + 1);
+    return (commands_num + 1);
 }
 //command num is ok
 
-static size_t obtain_commandlen(char *commanda_all, int position)
+static size_t get_command_len(char *com_seq, int pos)
 {
 	size_t command_len;
 	
 	command_len = 0;
-	while(commanda_all[position] != ' ' && commanda_all[position] != '\0')
+	while(com_seq[pos] != ' ' && com_seq[pos] != '\0')
 	{
-		position++;
+		pos++;
 		command_len++;
 	}
 	return command_len;
 }
 //obtain_commandlen is ok
 
-char **split(char *split_sub)
+char **split(char *src)
 {
-	size_t command_num;
+	size_t commands_num;
 	char **input;
 	size_t command_len;
-	int position;
+	int pos;
 	int j;
 	size_t k;
 
-	position = 0;
+	pos = 0;
 	j = 0;
 	k = 0;
-	command_num = spliter(split_sub);
-	input = (char **)malloc(sizeof(char *) * (command_num + 1));
-	while (split_sub[position] != '\0')
+	commands_num = get_commands_num(src);
+	input = (char **)malloc(sizeof(char *) * (commands_num + 1));
+	while (src[pos] != '\0')
 	{
-		while(split_sub[position] == ' ' && split_sub[position] != '\0')
-			position++;
-		command_len = obtain_commandlen(split_sub, position);
+		while(src[pos] == ' ' && src[pos] != '\0')
+			pos++;
+		command_len = get_command_len(src, pos);
 		input[j] = (char *)malloc(sizeof(char) * (command_len + 1));
 		while (command_len != k)
 		{
-			input[j][k] = split_sub[position];
-			position++;
+			input[j][k] = src[pos];
+			pos++;
 			k++;
 		}
 		input[j][k] = '\0';

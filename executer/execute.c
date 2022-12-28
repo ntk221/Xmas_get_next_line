@@ -30,11 +30,11 @@ bool echo_or_not(char *sub)
 	return (true);
 }
 
-void execute(char **input_string_all, int *inputstringposition, int input_all)//, int separatednum
+void execute(char **tok_seq, int *tok_pos, int delim_num)//, int separatednum
 {
-	if (true == echo_or_not(input_string_all[*inputstringposition]))
-		ft_echo(input_string_all, inputstringposition); // echo の 引数の有無を判定して処理に回す
+	if (true == echo_or_not(tok_seq[*tok_pos]))
+		ft_echo(tok_seq, tok_pos); // echo の 引数の有無を判定して処理に回す
 	else
-		*inputstringposition = *inputstringposition + input_all;
+		*tok_pos= *tok_pos + delim_num;
 	return ;
 }
