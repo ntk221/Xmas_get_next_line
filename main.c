@@ -6,32 +6,50 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 18:42:41 by kazuki            #+#    #+#             */
-/*   Updated: 2022/12/26 11:04:58 by satushi          ###   ########.fr       */
+/*   Updated: 2022/12/28 11:55:21 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/minishell.h"
 
-int main()
+void shell_loop()
 {
-	char	*command;
-	char	**separated;
-	int		inputed_string_separetednum;
-	int		inputstring_position;
-
-	inputed_string_separetednum = 0;
-	inputstring_position = 0;
+	char	*command_line;
+	char	**tok_seq;
+	int		delim_num;
+	int		tok_pos;
+	
+	delim_num = 0;
+	tok_pos = 0;
+	
 	while(1)
     {
-        command = readline("--> ");
-        separated = split(command, ' ');
-		while (separated[inputed_string_separetednum] != NULL)
-			inputed_string_separetednum++;
-		while (separated[inputstring_position] != NULL)
+        command_line = readline("--> ");
+        tok_seq = split(command_line, ' ');
+		while (tok_seq[delim_num] != NULL)
+			delim_num++;
+		while (tok_seq[tok_pos] != NULL)
 		{
-			obtain_commandinfo(separated, &inputstring_position, inputed_string_separetednum);
+			execute(tok_seq, &tok_pos, delim_num);
 		}
-		inputstring_position = 0;
+
     }
+}
+
+int main()
+{
+	shell_loop();
+	// while(1)
+    // {
+    //     command = readline("--> ");
+    //     separated = split(command, ' ');
+	// 	while (separated[inputed_string_separetednum] != NULL)
+	// 		inputed_string_separetednum++;
+	// 	while (separated[inputstring_position] != NULL)
+	// 	{
+	// 		obtain_commandinfo(separated, &inputstring_position, inputed_string_separetednum);
+	// 	}
+	// 	inputstring_position = 0;
+    // }
     return (0);
 }

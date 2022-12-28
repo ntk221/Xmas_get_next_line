@@ -6,7 +6,7 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 19:36:13 by satushi           #+#    #+#             */
-/*   Updated: 2022/12/26 11:06:21 by satushi          ###   ########.fr       */
+/*   Updated: 2022/12/28 11:56:17 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_echo_no_newline(void);
 
 /*command swaitch'd*/
 int		catch_echoargnum(char **inputstring_arrange, int arrange_position);
-void	obtain_commandinfo(char **input_string_all, int *inputstringposition, int input_all);
+void	execute(char **input_string_all, int *inputstringposition, int input_all);
 
 /*split*/
 char	**split(char *split_sub, char separater);
