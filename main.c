@@ -20,19 +20,20 @@ void shell_loop()
 	int		tok_pos;
 	
 	delim_num = 0;
-	
 	while(1)
     {
 		tok_pos = 0;
         command_line = readline("--> ");
-        tok_seq = split(command_line);
+        tok_seq = tokenizer(command_line);
+		//printf("tok seq is like ... %s\n", tok_seq[0]);
+		//printf("tok seq is like ... %s\n", tok_seq[1]);
 		while (tok_seq[delim_num] != NULL)
 			delim_num++;
+		//printf("delim num is ... %d\n", delim_num);
 		while (tok_seq[tok_pos] != NULL)
 		{
 			execute(tok_seq, &tok_pos, delim_num);
 		}
-
     }
 }
 
