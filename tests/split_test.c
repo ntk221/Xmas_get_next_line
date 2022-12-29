@@ -30,34 +30,36 @@ void	test_split(void)
 	char	*test6;
 	char	**res6;
 
+	char	*delim = " ";
+
 	test1 = "hoge huga";
-	res1 = split(test1, ' ');
+	res1 = split(test1, delim);
 	for (int i = 0; i < 2; i++)
 	{
-		write(1, res1[i], strlen(res1[i]));
+		printf("%s\n", res1[i]);
 	}
 	test2 = " hoge huga"; 
-	res2 = split(test2, ' ');
+	res2 = split(test2, delim);
 	for (int i = 0; i < 2; i++)
 	{
-		write(1, res2[i], strlen(res2[i]));
+		printf("%s\n", res2[i]);
 	}
 	test3 = "     h       u         ";
-	res3 = split(test3, ' ');
+	res3 = split(test3, delim);
 	for (int i = 0; i < 2; i++)
 	{
-		printf("%s \n", res3[i]);
+		printf("%s\n", res3[i]);
 	}
 	test4 = "";
-	res4 = split(test4, ' ');
+	res4 = split(test4, delim);
 	for (int i = 0; i < 0; i++)
 	{
 		printf("%s \n", res4[i]);
 	}
 	test5 = "             ";
-	res5 = split(test5, ' ');
+	res5 = split(test5, delim);
 	test6 = "ahafoiuwehflaiuh";
-	res6 = split(test6, ' ');
+	res6 = split(test6, delim);
 	{
 		printf("%s \n", res6[0]);
 	}

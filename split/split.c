@@ -13,69 +13,87 @@
 #include <readline/readline.h>
 #include <readline/history.h>
 
-static size_t spliter(char *string)
+static size_t get_commands_num(char *str, char *delim)
 {
-    size_t  position;
-    size_t  command_num;
+    size_t  pos;
+    size_t  commands_num;
 
-    position = 0;
-    command_num = 0;
-	while (string[position] == ' ' && string[position] != '\0')
-		position++;
-    while (string[position] != '\0')
+    pos = 0;
+    commands_num = 0;
+	while (strchr(delim, str[pos]) == NULL  && str[pos] != '\0')
+		pos++;
+	// printf("%ld\n", pos);
+    while (str[pos] != '\0')
     {
-        if (position != 0 && string[position - 1] == ' ' && string[position] != ' ')
-            command_num++;
-        position++;
+        if (pos != 0 && strchr(delim, str[pos - 1]) != NULL && strchr(delim , str[pos]) == NULL)
+            commands_num++;
+        pos++;
     }
-    return (command_num + 1);
+    return (commands_num + 1);
 }
 //command num is ok
 
-static size_t obtain_commandlen(char *commanda_all, int position)
+static size_t get_command_len(char *com_seq, char *delim, int pos)
 {
-	size_t command_len;
+	size_t 	command_len;
 	
 	command_len = 0;
-	while(commanda_all[position] != ' ' && commanda_all[position] != '\0')
+	// printf("%d\n", pos);
+	while(strchr(delim , com_seq[pos]) == NULL && com_seq[pos] != '\0')
 	{
-		position++;
+		pos++;
 		command_len++;
 	}
 	return command_len;
 }
 //obtain_commandlen is ok
 
-char **split(char *split_sub)
+char **split(char *src, char *delim)
 {
-	size_t command_num;
-	char **input;
-	size_t command_len;
-	int position;
-	int j;
-	size_t k;
+	size_t 	commands_num;
+	char **	input;
+	size_t 	command_len;
+	int 	pos;
+	int 	j;
+	size_t	 k;
 
-	position = 0;
+	pos = 0;
 	j = 0;
 	k = 0;
-	command_num = spliter(split_sub);
-	input = (char **)malloc(sizeof(char *) * (command_num + 1));
-	while (split_sub[position] != '\0')
+	commands_num = get_commands_num(src, delim);
+	printf("commands_num is ...%ld\n", commands_num);
+	input = (char **)malloc(sizeof(char *) * (commands_num + 1));
+	while (src[pos] != '\0')
 	{
-		while(split_sub[position] == ' ' && split_sub[position] != '\0')
-			position++;
-		command_len = obtain_commandlen(split_sub, position);
-		input[j] = (char *)malloc(sizeof(char) * (command_len + 1));
-		while (command_len != k)
+		// while(strchr(delim, src[pos]) == NULL && src[pos] != '\0')
+		//	pos++;
+		if (strchr(delim, src[pos]) != NULL)
 		{
-			input[j][k] = split_sub[position];
-			position++;
+			pos++;
+			continue;
+		}
+		command_len = get_command_len(src, delim, pos);
+		// printf("command len is ... %ld\n", command_len);
+		input[j] = (char *)malloc(sizeof(char) * (command_len + 1));
+		while (k != command_len)
+		{
+			input[j][k] = src[pos]; // ???
+			pos++;
 			k++;
 		}
 		input[j][k] = '\0';
+		// printf("%s\n", input[j]);
 		j++;
 		k = 0;
 	}
 	input[j] = NULL;
 	return input;
+}
+
+char	**tokenizer(char *str)
+{
+	char	*sp_ch;
+
+	sp_ch = "&;|()<> ";
+	return(split(str, sp_ch));
 }
