@@ -30,7 +30,7 @@ void	test_split(void)
 	char	*test6;
 	char	**res6;
 
-	char	*delim = " ";
+	char	*delim = " |";
 
 	test1 = "hoge huga";
 	res1 = split(test1, delim);
@@ -62,6 +62,20 @@ void	test_split(void)
 	res6 = split(test6, delim);
 	{
 		printf("%s \n", res6[0]);
+	}
+
+	char *test7 = "t e s t";
+	char **res7 = split(test7, delim);
+	for(int i = 0; i < 4; i++)
+	{
+		printf("%s\n", res7[i]);
+	}
+
+	char *test8 = "English | Japanese";
+	char **res8 = split(test8, delim);
+	for(int i = 0; i < 2; i++)
+	{
+		printf("%s\n", res8[i]);
 	}
 }
 
